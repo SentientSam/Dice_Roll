@@ -3,12 +3,15 @@
 # Purpose : Software to emulate rolling a dice, allowing for any size dice to be selected
 import random
 
-validEntry = False
-Result = 0
-while(True):
-  Roll = int(input("Please enter number of sides (Enter 0 to leave): "))
+validEntry = False # Variable to check for a valid (or supported) dice
 
-  if (Roll == 10):
+while(True):
+
+  Result = 0
+  
+  Sides = int(input("Please enter number of sides (Enter 0 to leave): ")) # User enters an integer value and 
+
+  if (Sides == 10):
       validEntry = True
       randRoll = random.randint(0,9)
       percentRoll = random.randrange(00,90,10)
@@ -17,14 +20,16 @@ while(True):
         Result = 100
       else:
         Result = randRoll + percentRoll
-  if (Roll == 0):
+
+  if (Sides == 0):
     validEntry = True
     print("Thank you! Good luck")
     break
-  if (Roll != 10 and validEntry == True):
+
+  if (Sides != 10 and validEntry == True):
     Quantity = int(input("How many do you want to roll?: "))
 
-  if (Roll == 8):
+  if (Sides == 8):
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,8)
@@ -32,7 +37,7 @@ while(True):
       print("You rolled:",randRoll)
       Result += randRoll
 
-  if (Roll == 6):
+  if (Sides == 6):
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,6)
@@ -40,7 +45,7 @@ while(True):
       print("You rolled:",randRoll)
       Result += randRoll
 
-  if (Roll == 4):
+  if (Sides == 4):
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,4)
@@ -48,7 +53,7 @@ while(True):
       print("You rolled:",randRoll)
       Result += randRoll
 
-  if (Roll == 20):
+  if (Sides == 20):
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,20)
@@ -56,19 +61,21 @@ while(True):
       print("You rolled:",randRoll)
       Result += randRoll
 
-  if (Roll == 12):
+  if (Sides == 12):
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,12)
       Quantity = Quantity - 1
       print("You rolled:",randRoll)
       Result += randRoll    
+
   if(validEntry == False):
     print("That type of dice is not supported or does not exist, please try again!")
 
-  if(Roll == 10):
+  if(Sides == 10):
     print("Your score is: ",Result,"%")
     validEntry == False
+
   else:
     if(validEntry == True):
       print("Your score is: ",Result)
