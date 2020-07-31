@@ -3,14 +3,11 @@
 # Purpose : Software to emulate rolling a dice, allowing for any size dice to be selected
 import random
 
-validEntry = False # Variable to check for a valid (or supported) dice
-
 while(True):
-
+  validEntry = False # Variable to check for a valid (or supported) dice
   Result = 0
-
   Sides = int(input("Please enter number of sides (Enter 0 to leave): ")) # User enters an integer value for number os sides of dice
-
+  
   if (Sides == 10): # For use with DnD, if they are rolling a d10 then it is a percentage roll consisting of two dice
       validEntry = True
       randRoll = random.randint(0,9)
@@ -26,10 +23,8 @@ while(True):
     print("Thank you! Good luck")
     break
 
-  if (Sides != 10 and validEntry == True): # If valid entry (and not the percentile dice), ask how many dice they want to roll
-    Quantity = int(input("How many do you want to roll?: "))
-
   if (Sides == 8):
+    Quantity = int(input("How many do you want to roll?: "))
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,8)
@@ -38,6 +33,7 @@ while(True):
       Result += randRoll
 
   if (Sides == 6):
+    Quantity = int(input("How many do you want to roll?: "))
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,6)
@@ -46,6 +42,7 @@ while(True):
       Result += randRoll
 
   if (Sides == 4):
+    Quantity = int(input("How many do you want to roll?: "))
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,4)
@@ -54,6 +51,7 @@ while(True):
       Result += randRoll
 
   if (Sides == 20):
+    Quantity = int(input("How many do you want to roll?: "))
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,20)
@@ -62,6 +60,7 @@ while(True):
       Result += randRoll
 
   if (Sides == 12):
+    Quantity = int(input("How many do you want to roll?: "))
     validEntry = True
     while(Quantity != 0):
       randRoll = random.randint(1,12)
@@ -74,9 +73,7 @@ while(True):
 
   if(Sides == 10): # If a d10, the result will be a percentile
     print("Your score is: ",Result,"%")
-    validEntry == False
 
   else:
     if(validEntry == True): 
       print("Your score is: ",Result)
-      validEntry == False
