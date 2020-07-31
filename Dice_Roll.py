@@ -8,10 +8,10 @@ validEntry = False # Variable to check for a valid (or supported) dice
 while(True):
 
   Result = 0
-  
-  Sides = int(input("Please enter number of sides (Enter 0 to leave): ")) # User enters an integer value and 
 
-  if (Sides == 10):
+  Sides = int(input("Please enter number of sides (Enter 0 to leave): ")) # User enters an integer value for number os sides of dice
+
+  if (Sides == 10): # For use with DnD, if they are rolling a d10 then it is a percentage roll consisting of two dice
       validEntry = True
       randRoll = random.randint(0,9)
       percentRoll = random.randrange(00,90,10)
@@ -21,12 +21,12 @@ while(True):
       else:
         Result = randRoll + percentRoll
 
-  if (Sides == 0):
+  if (Sides == 0): # If 0 is entered, exit program and flag validEntry so that the score is not posted
     validEntry = True
     print("Thank you! Good luck")
     break
 
-  if (Sides != 10 and validEntry == True):
+  if (Sides != 10 and validEntry == True): # If valid entry (and not the percentile dice), ask how many dice they want to roll
     Quantity = int(input("How many do you want to roll?: "))
 
   if (Sides == 8):
@@ -69,14 +69,14 @@ while(True):
       print("You rolled:",randRoll)
       Result += randRoll    
 
-  if(validEntry == False):
+  if(validEntry == False): # If not valid entry, repeat loop but inform user that the type of dice they entered is not supported
     print("That type of dice is not supported or does not exist, please try again!")
 
-  if(Sides == 10):
+  if(Sides == 10): # If a d10, the result will be a percentile
     print("Your score is: ",Result,"%")
     validEntry == False
 
   else:
-    if(validEntry == True):
+    if(validEntry == True): 
       print("Your score is: ",Result)
       validEntry == False
